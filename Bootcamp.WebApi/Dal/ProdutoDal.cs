@@ -1,21 +1,19 @@
 ﻿using Bootcamp.WebApi.Dal.Repositories;
-using Bootcamp.WebApi.Dal.Repositories;
 using Google.Cloud.Firestore;
 using Newtonsoft.Json;
-using System.Security.Cryptography;
 
 namespace Bootcamp.WebApi.Dal
 {
-    public class Produto : IProduto
+    public class ProdutoDal : IProduto
     {
         string projectId;
         FirestoreDb fireStoreDb;
-        public Produto()
+        public ProdutoDal()
         {
             /*Caminho do arquivo baixado do firebase ou gcloud, colocar na raiz do projeto*/
-            string arquivoApiKey = @"bootcamp-9a19e-firebase-adminsdk-s2jtb-fa0f95bc26.json";
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", arquivoApiKey);
-            projectId = "project-Bootcamp";
+            string arquivoApiKey = @"bootcamp-9a19e-firebase-adminsdk-s2jtb-3d628881bd.json";
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", @"C:\Users\Jonatan\source\repos\Bootcamp.WebApi\Bootcamp.WebApi\bootcamp-9a19e-firebase-adminsdk-s2jtb-3d628881bd.json");
+            projectId = "bootcamp-9a19e";
             fireStoreDb = FirestoreDb.Create(projectId);
         }
         public async Task<List<Model.Produto>> GetProdutos()
